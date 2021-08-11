@@ -61,5 +61,15 @@ const app = createApp(App)
   app.component('tab-archive', {
     template: `<div class="demo-tab">Archive component</div>`
   })
-  
+  app.component('base-input', {
+    template: `<input ref="input" />`,
+    methods: {
+        focusInput() {
+            this.$refs.input.focus()
+        }
+      },
+      mounted() {
+        this.focusInput()
+      }
+  })
   app.mount('#app')

@@ -1,15 +1,17 @@
 <template>
 <div id="dynamic-component-demo" class="demo">
-  <button
-     v-for="tab in tabs"
-     :key="tab"
-     :class="['tab-button', { active: currentTab === tab }]"
-     @click="currentTab = tab"
-   >
+    <button
+        v-for="tab in tabs"
+        :key="tab"
+        :class="['tab-button', { active: currentTab === tab }]"
+        @click="currentTab = tab"
+    >
     {{ tab }}
-  </button>
-
-  <component :is="currentTabComponent" class="tab"></component>
+    </button>
+    <keep-alive>
+        <component :is="currentTabComponent" class="tab"></component>
+    </keep-alive>
+    <base-input></base-input>
 </div>
 </template>
 
